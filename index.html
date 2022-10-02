@@ -1,0 +1,296 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--<link rel="stylesheet" href="assets/css/style-drupal.css" />-->
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <link rel="stylesheet" href="assets/css/Treant.css" />
+  <link rel="stylesheet" href="assets/css/collapsable.css" />
+
+  <link rel="stylesheet" href="assets/css/perfect-scrollbar.css" />
+  <link rel="stylesheet" href="assets/css/dory-custom.css" />
+
+
+
+  <link rel="stylesheet" href="assets/css/jquery-ui.css">
+
+
+  <!-- I M P O R T A N T : PLEASE uncomment the script tags below and comment the tags without "crossorigin" when importing in Drupal -->
+  <!-- Drupal set with origin attribute
+  <script defer crossorigin src="assets/js/theme.js"></script>
+  <script crossorigin src="assets/js/raphael.js"></script>
+  <script crossorigin src="assets/js/Treant.js"></script>
+  <script crossorigin src="assets/js/jquery.min.js"></script>
+  <script crossorigin src="assets/js/vendor/jquery.easing.js"></script>
+  <script crossorigin src="assets/js/dory-json-tree.js"></script>
+  <script crossorigin src="assets/js/dory-custom.js"></script>-->
+
+
+  <!-- Standalone set without origin attribute-->
+  <script defer src="assets/js/theme.js"></script>
+  <script src="assets/js/raphael.js"></script>
+  <script src="assets/js/Treant.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/vendor/jquery.easing.js"></script>
+  <script src="assets/js/dory-json-tree.js"></script>
+  <script src="assets/js/dory-custom.js"></script>
+</head>
+
+<body>
+  <p align="center">T-CLEARE</p>
+
+
+  <main>
+    <div class="content-legend-intro"> <img src="assets/img/legend2.png" alt="Colors Key" class="legend">
+      <p style="width:90%">T-CLEARE (Tissue CLEAring protocol REpository) is a community-driven repository of tissue
+        clearing protocols. The goal of T-CLEARE is to share details not found in the literature, including protocol
+        ease of use, protocol modifications required for specific use cases, and instances when tissue clearing did not
+        work. </p>
+      <br />
+      <p><a href="">Access to the open source code repository</a></p>
+      <p><a href="https://doryworkspace.org/tissue_clearing_feedback">The tissue clearing survey</a></p>
+      <p><a href="">Donwload the survey results</a></p>
+    </div>
+
+    <button type="button" class="collapsible">
+      <img id="TOGGLE0186A1_ICON" class="dropdown-toggle-icon" alt="Click to expand/collapse" title="Click to expand/collapse" style="margin:0;width:1.0000rem;height:1.0000rem;border:none" src="assets/img/tog_plus.gif">
+      F I L T E R S</img>
+    </button>
+
+    <!--Filters-->
+    <div class="content">
+      <table class="filter-table">
+
+        <tr>
+          <!--Protocols type checkboxes-->
+          <td>
+            <table class="protocols-checkboxes">
+              <tr>
+              <th>
+                Protocols
+              </th>
+            </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" id="protocol-very-successful" checked name="protocol-very-successful"
+                    value="verySuccessful" onclick="onProtocolClick('protocol-very-successful')" />
+                  <label class="dory-label-checkbox" for="protocol-very-successful">Very Successful</label>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <input type="checkbox" id="protocol-successful" checked name="protocol-successful"
+                    value="protocol-successful" onclick="onProtocolClick('protocol-successful')" />
+                  <label class="dory-label-checkbox" for="protocol-successful">Successful</label>
+                </td>
+              </tr>
+
+            <tr>
+              <td>
+              <input type="checkbox" id="protocol-not-successful" checked name="protocol-not-successful"
+                value="protocol-not-successful" onclick="onProtocolClick('protocol-not-successful')" />
+              <label class="dory-label-checkbox" for="protocol-not-successful">Not successful</label>
+            </td>
+         </tr>
+        </table>
+      </td>
+
+      <td>
+        <table class="filters">
+          <tr>
+            <td>
+              <!--  Fixation dropdown.  -->
+              <label class="dory-label-dropdown" for="idFixation">Fixation</label><br />
+
+              <select name="idFixation" id="idFixation" class="dory_dropdwon" onchange="onFilterChange(this.value)">
+                <option value="all">All</option>
+                <option value="fixation-4-formalin-5sulf-acid">4% Formalin with 5% 5-Sulfosalicyclic acid</option>
+                <option value="fixation-4-paf-48hr">4% PAF 48HR</option>
+                <option value="fixation-10-formalin">10% Formalin</option>
+                <option value="fixation-clarity-shield-short">CLARITY + SHIELD + SHORT</option>
+                <option value="fixation-epoxy-solution">Epoxy solution</option>
+                <option value="fixation-ga-2-overnight">GA 2% overnight</option>
+                <option value="fixation-other-fixation">Other fixation</option>
+                <option value="fixation-pfa-2-phem-5-sorbitol">PFA, 2% in PHEM, 5% Sorbitol</option>
+                <option value="fixation-pfa-4-1hr-rt">PFA, 4% 1hr @RT</option>
+                <option value="fixation-pfa-4-overnight-pbs">PFA, 4% Overnight, rinsed with PBS</option>
+                <option value="fixation-pfa-4-overnight">PFA, 4% Overnight</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!--  Pre-treatment dropdown.  -->
+              <label for="idPretreatment" class="dory-label-dropdown">Pre-treatment</label><br />
+
+              <select name="idPretreatment" id="idPretreatment" class="dory_dropdwon"
+                onchange="onFilterChange(this.value)">
+                <option value="all">All</option>
+                <option value="pretreat-1-pfa-4-acrylamide">0-1% PFA,4% Acrylamide, PBS Hydrogel Embedding</option>
+                <option value="pretreat-antigen-cross-linking">Antigen Cross Linking & Hydrogel Embedding</option>
+                <option value="pretreat-clarity-hydrogel-shield-tissue-gel">Clarity with Hydrogel SHIELD/SHORT</option>
+                <option value="pretreat-decalcification">Decalcification</option>
+                <option value="pretreat-hydrogel-embedding">Hydrogel Embedding</option>
+                <option value="pretreat-hydrogel-sa">Hydrogel + SA</option>
+                <option value="pretreat-hydrogen-peroxide-decolor">Hydrogen Peroxide for Decolorizing</option>
+                <option value="pretreat-inactivation-fix">Inactivation of fix</option>
+                <option value="pretreat-methanol-dehydration">Methanol Dehydration for Decolorizing</option>
+                <option value="pretreat-na">N/A</option>
+                <option value="pretreat-none">None</option>
+                <option value="pretreat-other-pretreat">Other</option>
+                <option value="pretreat-quadrol-decolor">Quadrol for Decolorizing</option>
+                <option value="pretreat-shield">SHIELD</option>
+                <option value="pretreat-tissue-gel-h2o2-antigen">Tissue Gel, H202, Antigen Retrieval Process</option>
+                <option value="pretreat-tissue-gel-lowph">Tissue Gel, Low pH</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td>
+              <!--  Labeling dropdown.  -->
+              <label for="idLabeling" class="dory-label-dropdown">Labeling</label><br />
+
+              <select name="idLabeling" id="idLabeling" class="dory_dropdwon" onchange="onFilterChange(this.value)">
+                <option value="all">All</option>
+                <option value="labeling-antibodies">Antibodies</option>
+                <option value="labeling-antibody-anti-cfos">Antibody-anti-cFos or anti-RFP</option>
+                <option value="labeling-antibody-anti-gfp">Antibody-anti-GFP</option>
+                <option value="labeling-antibody-anti-mbp">Antibody-anti-MBP</option>
+                <option value="labeling-antibody-anti-mcherry">Antibody-anti-mCherry</option>
+                <option value="labeling-antibody-anti-mcherry-anti-cgrp">Antibody-anti-mCherry, anti-CGRP</option>
+                <option value="labeling-antibody-anti-mcherry-anti-myovlla">Antibody-anti-mCherry, anti-MyoVIIa</option>
+                <option value="labeling-antibody-staining">Antibody-staining</option>
+                <option value="labeling-antibody-tuj1">Antibody, Tuj1</option>
+                <option value="labeling-dapi-passive-antibodies">DAPI, Passive antibodies, and Thy1-YFP retention
+                </option>
+                <option value="labeling-dye">Dye</option>
+                <option value="llabeling-endogenous-flurophone">Endogenous Flurophore</option>
+                <option value="labeling-mobp-egfp-preservation">MOBP-EGFP Preservation</option>
+                <option value="labeling-nanobody">Nanobody</option>
+                <option value="labeling-none">None</option>
+                <option value="labeling-passive-antibody">Passive Antibody</option>
+                <option value="labeling-primary-secondary-antibodies">Primary/Secondary Antibodies</option>
+                <option value="labeling-retention">Retention</option>
+                <option value="labeling-sox1-yfp-t-mcherry">Sox1-YFP, T-mCherry, Sox17-mCerulean</option>
+                <option value="labeling-td-tomato-retention">tdTomato Retention</option>
+                <option value="labeling-thy-1-yfp-retention">Thy-1-YFP Retention</option>
+                <option value="labeling-thy-yfp-retention">Thy-YFP Retention</option>
+                <option value="labeling-tissue-autofluorescence">Tissue Autofluorescence</option>
+                <option value="labeling-various-antibodies">Various Antibodies</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <!--  Delipidation dropdown.  -->
+              <label for="idDelipidation" class="dory-label-dropdown">Delipidation</label><br />
+
+              <select name="idDelipidation" id="idDelipidation" class="dory_dropdwon"
+                onchange="onFilterChange(this.value)">
+                <option value="all">All</option>
+                <option value="delip-active-electro">Active Electrophresis, SDS</option>
+                <option value="delip-amino-alcohol">Amino-alcohol</option>
+                <option value="delip-butanol">Butanol</option>
+                <option value="delip-clearing-overnight">Clearing (Cubic 1), overnight @37C</option>
+                <option value="delip-dimethoxy-propane">2.2-dimethoxy propane (hydrolysis)</option>
+                <option value="delip-enzyme-mediated">Enzyme Mediated</option>
+                <option value="delip-idisco-protocol">IDISCO protocol: MeOH, DBD, DCM</option>
+                <option value="delip-methanol-gradient">Methanol gradient</option>
+                <option value="delip-na">N/A</option>
+                <option value="delip-other">Other</option>
+                <option value="delip-passive-sds">Passive, SDS</option>
+                <option value="delip-saponin-tritonx">Saponin, TritonX-100, ethanolamine</option>
+                <option value="delip-sds-heat">SDS/Heat</option>
+                <option value="delip-tert-butanol">tert-Butanol gradient</option>
+                <option value="delip-thf-dibenzylether">THF, Dibenzylether</option>
+                <option value="delip-triton-quadrol">Triton, Quadrol, Urea, 5M NaCI</option>
+                <option value="delip-urea-triton">Uera, Triron</option>
+
+              </select>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td>
+            <!--  Refractive Index Matching.  -->
+            <label for="idRefIdxMatch" class="dory-label-dropdown">Refractive Index Matching</label><br />
+
+            <select name="idRefIdxMatch" id="idRefIdxMatch" class="dory_dropdwon" onChange="onFilterChange(this.value)">
+              <option value="all">All</option>
+              <option value="refrac-80-glycerol">80% Glycerol with 0.1x PBS</option>
+              <option value="refrac-aq-90-glycerol">Aqueous: 90% glycerol, RI 1.46</option>
+              <option value="refrac-aq-amino-alcohol-ri">Aq: Amino-alcohol, RI 1.45</option>
+              <option value="refrac-aq-amino-alcohol">Aq: Amino-alcohol 1.45</option>
+              <option value="refrac-aq-clarity-mount">Aq: X-CLARITY Mounting Solution, RI 1.46</option>
+              <option value="refrac-aq-histodenz">Aq: Histodenz, RI 1.46</option>
+              <option value="refrac-aq-tde-pbs-68">Aq: TDE/PBS 68%</option>
+              <option value="refrac-aqueous">Aqueous</option>
+              <option value="refrac-diatrizoic-iodinaxol">Diatrizoic acid + iodixanol in H20 Meglumine</option>
+              <option value="refrac-omnipaque">Omnipaque350 (iohexol)</option>
+              <option value="refrac-org-babb-ri">Organic: BABB, RI 1.56</option>
+              <option value="refrac-org-bb-peg-75-25">Org: BB-PEG 75%/25%</option>
+              <option value="refrac-org-bb-peg">Org: BB-PEG</option>
+              <option value="refrac-org-dibenzylether">Org: Dibenzyl ether, RI 1.54</option>
+              <option value="refrac-sucrose-urea">Sucrose, Urea, thethanolamine</option>
+              <option value="refrac-tde-pbs">TDE/PBS 58%</option>
+              <option value="refrac-thf-gradient">THF gradient</option>
+              <option value="refrac-urea-water-ri">Urea, water, RI 1.40</option>
+              <option value="refrac-water-salts">Water, salts, RI 1.33 - 1.40</option>
+            </select>
+
+      </td>
+      </tr>
+      <tr>
+      <td>
+        <!--  Tissue dropdown.  -->
+        <label for="idTissue" class="dory-label-dropdown">Tissue</label><br />
+
+        <select name="idTissue" id="idTissue" class="dory_dropdwon" onChange="onFilterChange(this.value)">
+          <option value="all">All</option>
+          <option value="gerbil-tissue-slices">Gerbil + Tissue Slices</option>
+          <option value="human-cerebral-organoid">Human - Celebral organoid</option>
+          <option value="human-multiple-brain-areas">Human - Multiple Brain Areas</option>
+          <option value="human-pancreas">Human - Pancreas</option>
+          <option value="human-paraffin-soft-tissue">Human - Paraffin embedded soft tissue/tumors</option>
+          <option value="mouse-brain-sections">Mouse - Brain sections</option>
+          <option value="mouse-cochlea">Mouse - Cochlea</option>
+          <option value="mouse-embryo">Mouse - Embryo</option>
+          <option value="mouse-section-cortex">Mouse - Section of Cortex</option>
+          <option value="mouse-skin-bladder">Mouse - Skin, bladder</option>
+          <option value="mouse-spinal-cord">Mouse - Spinal Cord</option>
+          <option value="mouse-whole-brain">Mouse - Whole Brain</option>
+          <option value="mouse-whole-embryos">Mouse - Whole Embryos</option>
+          <option value="na-whole-brain">N/A - Whole Brain</option>
+          <option value="na">N/A</option>
+        </select>
+      </td>
+      </tr>
+      </table>
+      </td>
+      <td>
+        <input type="button" value="Reset Filters" class="dory-button" onClick="clearFilters()">
+      </td>
+      </tr>
+
+      </table>
+
+    </div>
+
+
+    <div style="float:center; " class="chart" id="collapsable-example"></div>
+  </main>
+  <script>
+    initProtocolsChart();
+  </script>
+
+</body>

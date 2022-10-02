@@ -1,0 +1,88 @@
+table.dory-viz-main{
+	border:1px solid rgb(191, 201, 231);
+	margin-left:auto;
+	margin-right:auto;
+    width: 100%;
+}
+
+table tr td.filter{
+    padding: 15px !important;
+    border:1px solid rgb(191, 201, 231);
+    vertical-align: top;
+}
+
+table tr td.prot-tree{
+    padding: 15px !important;
+    border:1px solid rgb(191, 201, 231);
+    vertical-align: top;
+}
+
+
+
+.dory-button {
+    line-height: 1.5;
+    color: #fff;
+    background-color: #366e9f;
+    padding: 5px 5px 5px 5px;
+}
+
+.dory-label-checkbox{
+    display: inline;
+}
+
+.display-none{
+    display: none;
+}
+
+.dory_dropdwon{
+    font-size: 1.0em;
+}
+
+.legend{
+    width: 250px;
+    margin-right: 15px;
+    float: left;
+  }
+
+  .content-legend-intro {
+    width: 100%;
+    /*border: 2px solid blue;*/
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+  .active, .collapsible:hover {
+    background-color: #ccc;
+  }
+
+  /* Style the collapsible content. Note: hidden by default */
+  /*.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+  }*/
+
+/*.chart { height: 400px; margin: 5px; width: 500px; margin: 5px auto; border: 3px solid #DDD; border-radius: 3px;  }*/
+
+.footer{
+    height: 100px;
+}
+
+.footer__section {
+    padding: 5px 0 0 0;
+  }
