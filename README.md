@@ -1,6 +1,6 @@
 # T-CLEARE Standalone Source Code
 
-Based on tissue clearing dataset interpretation we designed and implemented a web-based visualization tool.
+Based on tissue clearing dataset interpretation we designed and implemented a web-based visualization tool called T-CLEARE.
 The data flow is presented as a tree chart where the user can navigate the data starting with very successful, successful, and unsuccessful protocols
 and drill down to fixation, pre-treatment, labeling, delipidating and rematching. The final nodes of the tree are the tissue, mostly mouse brain tissue.
 Users can view the entire tree by clicking on the nodes and extend further or they can filter by success of the protocols, the protocols steps or the tissue involved in the clearing.
