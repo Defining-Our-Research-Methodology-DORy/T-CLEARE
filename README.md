@@ -1,4 +1,4 @@
-# dory-vis-standalone
+# T-CLEARE Standalone Source Code
 
 Based on tissue clearing dataset interpretation we designed and implemented a web-based visualization tool.
 The data flow is presented as a tree chart where the user can navigate the data starting with very successful, successful, and unsuccessful protocols
